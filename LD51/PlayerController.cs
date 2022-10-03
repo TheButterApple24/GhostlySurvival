@@ -12,6 +12,7 @@ namespace LD51
 
 		Rigidbody2DComponent m_Rb;
 		AudioSourceComponent m_AudioSource;
+		MultiSpriteRendererComponent m_Sprite;
 		Vector2 m_Inputs = Vector2.Zero;
 		Prefab m_ProjectilePrefab;
 		bool m_CanFire = true;
@@ -33,6 +34,7 @@ namespace LD51
 		{
 			m_Rb = GetComponent<Rigidbody2DComponent>();
 			m_AudioSource = GetComponent<AudioSourceComponent>();
+			m_Sprite = GetComponent<MultiSpriteRendererComponent>();
 
 			m_ProjectilePrefab = new Prefab("Assets/Prefabs/Projectile.prefab");
 		}
@@ -49,10 +51,13 @@ namespace LD51
 				m_HealthText.SetText("Health: " + Health);
 			}
 
-			if (Health <= 0.0f)
+			if (Health <= 0.0f && !IsDead)
+			{
 				IsDead = true;
+				m_Sprite.SetTextureIndex(1);
+			}
 
-			if(m_IsHit)
+			if (m_IsHit)
 			{
 				m_HitTimer -= deltaTime * 1;
 
@@ -103,7 +108,7 @@ namespace LD51
 				{
 					Transform spawnTransform = new Transform();
 					spawnTransform.Position = Transform.Position;
-					if(FireWeapon(spawnTransform))
+					if (FireWeapon(spawnTransform))
 						m_AudioSource.PlaySound();
 				}
 			}
@@ -136,11 +141,15 @@ namespace LD51
 			{
 				GameObject proj = Instantiate(m_ProjectilePrefab, transform);
 
-				proj.As<Projectile>().SetDamage(50.0f);
+				if (proj != null)
+				{
+					proj.As<Projectile>().SetDamage(50.0f);
+					m_CanFire = false;
+					return true;
 
-				m_CanFire = false;
+				}
 
-				return true;
+				return false;
 			}
 
 			return false;
@@ -159,6 +168,8 @@ namespace LD51
 
 			m_ScoreText.SetText("Score: " + Score);
 			m_HealthText.SetText("Health: " + Health);
+
+			m_Sprite.SetTextureIndex(0);
 		}
 	}
 

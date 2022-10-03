@@ -1,65 +1,95 @@
 Scene: Untitled
 GameObjects:
-  - GameObject: 2997365485887514179
+  - GameObject: 447565035581026265
     TagComponent:
-      Tag: TimeText
+      Tag: Player
     TransformComponent:
-      Position: [-7.00200653, 3, -0]
+      Position: [9.53674316e-07, 0, -0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       IsChild: false
-    TextRendererComponent:
-      Label: "Score: 12"
-      Color: [1, 1, 1, 1]
-      Size: 1
-  - GameObject: 5929215993607747818
+    ScriptComponent:
+      ClassName: LD51.PlayerController
+      ScriptFields:
+        - Name: Health
+          Type: Float
+          Data: 100
+        - Name: Speed
+          Type: Float
+          Data: 250
+    AudioSourceComponent:
+      SoundFilepath: Assets\Audio\Shoot.wav
+      Pitch: 1
+      Gain: 0.300000012
+      LoopSound: false
+    MultiSpriteRendererComponent:
+      TextureCount: 2
+      TextureIndex: 0
+      TilingFactor: [1, 1]
+      TextureFilepaths[0]: Assets\Textures\Player.png
+      TextureFilepaths[1]: Assets\Textures\PlayerDead.png
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: true
+      GravityScale: 0
+    CircleCollider2DComponent:
+      Offset: [0, 0]
+      Radius: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      IsTrigger: false
+  - GameObject: 2832239221616209564
     TagComponent:
-      Tag: HealthText
-    TransformComponent:
-      Position: [-7, 4, -0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-      IsChild: false
-    TextRendererComponent:
-      Label: "Health: 100"
-      Color: [1, 1, 1, 1]
-      Size: 1
-  - GameObject: 15327263696622127613
-    TagComponent:
-      Tag: Background
-    TransformComponent:
-      Position: [0, 0, -1]
-      Rotation: [0, 0, 0]
-      Scale: [20, 20, 1]
-      IsChild: false
-    SpriteRendererComponent:
-      Color: [0.482625484, 0.482625484, 0.482625484, 1]
-      TilingFactor: [20, 20]
-      TextureFilepath: Assets\Textures\Floor.png
-  - GameObject: 7188779177427995248
-    TagComponent:
-      Tag: GameManager
+      Tag: Camera
     TransformComponent:
       Position: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       IsChild: false
-    ScriptComponent:
-      ClassName: LD51.GameManager
-      ScriptFields:
-        - Name: EnemySpawnTimer
-          Type: Float
-          Data: 5
-        - Name: LevelChangeTimer
-          Type: Float
-          Data: 10
-  - GameObject: 15816267223518923498
+    CameraComponent:
+      Camera:
+        ProjectionType: 1
+        PerspectiveFOV: 0.785398185
+        PerspectiveNear: 0.00999999978
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -10
+        OrthographicFar: 10
+      Primary: true
+      FixedAspectRatio: false
+  - GameObject: 14408564251240302316
     TagComponent:
       Tag: Sprite
     TransformComponent:
-      Position: [-9, 5.13255543e-07, 1]
+      Position: [9, -6.84479232e-07, 1]
       Rotation: [0, 0, 1.57079637]
-      Scale: [19.9995956, 2, 1]
+      Scale: [19.9985867, 2, 1]
+      IsChild: false
+    SpriteRendererComponent:
+      Color: [0.0117647061, 0, 0.125490203, 1]
+      TilingFactor: [1, 1]
+      TextureFilepath: ""
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: false
+      GravityScale: 1
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+      IsTrigger: false
+  - GameObject: 11293157192564967251
+    TagComponent:
+      Tag: Sprite
+    TransformComponent:
+      Position: [0, 6, 1]
+      Rotation: [0, 0, 0]
+      Scale: [20, 3, 1]
       IsChild: false
     SpriteRendererComponent:
       Color: [0.0117647061, 0, 0.125490203, 1]
@@ -101,37 +131,13 @@ GameObjects:
       Restitution: 0
       RestitutionThreshold: 0.5
       IsTrigger: false
-  - GameObject: 11293157192564967251
+  - GameObject: 15816267223518923498
     TagComponent:
       Tag: Sprite
     TransformComponent:
-      Position: [0, 6, 1]
-      Rotation: [0, 0, 0]
-      Scale: [20, 3, 1]
-      IsChild: false
-    SpriteRendererComponent:
-      Color: [0.0117647061, 0, 0.125490203, 1]
-      TilingFactor: [1, 1]
-      TextureFilepath: ""
-    Rigidbody2DComponent:
-      BodyType: Static
-      FixedRotation: false
-      GravityScale: 1
-    BoxCollider2DComponent:
-      Offset: [0, 0]
-      Size: [0.5, 0.5]
-      Density: 1
-      Friction: 0.5
-      Restitution: 0
-      RestitutionThreshold: 0.5
-      IsTrigger: false
-  - GameObject: 14408564251240302316
-    TagComponent:
-      Tag: Sprite
-    TransformComponent:
-      Position: [9, -6.84479232e-07, 1]
+      Position: [-9, 5.13255543e-07, 1]
       Rotation: [0, 0, 1.57079637]
-      Scale: [19.9985867, 2, 1]
+      Scale: [19.9995956, 2, 1]
       IsChild: false
     SpriteRendererComponent:
       Color: [0.0117647061, 0, 0.125490203, 1]
@@ -149,57 +155,56 @@ GameObjects:
       Restitution: 0
       RestitutionThreshold: 0.5
       IsTrigger: false
-  - GameObject: 2832239221616209564
+  - GameObject: 7188779177427995248
     TagComponent:
-      Tag: Camera
+      Tag: GameManager
     TransformComponent:
       Position: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       IsChild: false
-    CameraComponent:
-      Camera:
-        ProjectionType: 1
-        PerspectiveFOV: 0.785398185
-        PerspectiveNear: 0.00999999978
-        PerspectiveFar: 1000
-        OrthographicSize: 10
-        OrthographicNear: -10
-        OrthographicFar: 10
-      Primary: true
-      FixedAspectRatio: false
-  - GameObject: 447565035581026265
+    ScriptComponent:
+      ClassName: LD51.GameManager
+      ScriptFields:
+        - Name: EnemySpawnTimer
+          Type: Float
+          Data: 5
+        - Name: LevelChangeTimer
+          Type: Float
+          Data: 10
+  - GameObject: 15327263696622127613
     TagComponent:
-      Tag: Player
+      Tag: Background
     TransformComponent:
-      Position: [9.53674316e-07, 0, -0]
+      Position: [0, 0, -1]
+      Rotation: [0, 0, 0]
+      Scale: [20, 20, 1]
+      IsChild: false
+    SpriteRendererComponent:
+      Color: [0.482625484, 0.482625484, 0.482625484, 1]
+      TilingFactor: [20, 20]
+      TextureFilepath: Assets\Textures\Floor.png
+  - GameObject: 5929215993607747818
+    TagComponent:
+      Tag: HealthText
+    TransformComponent:
+      Position: [-7, 4, -0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
       IsChild: false
-    ScriptComponent:
-      ClassName: LD51.PlayerController
-      ScriptFields:
-        - Name: Speed
-          Type: Float
-          Data: 250
-    AudioSourceComponent:
-      SoundFilepath: Assets\Audio\Shoot.wav
-      Pitch: 1
-      Gain: 0.300000012
-      LoopSound: false
-    SpriteRendererComponent:
+    TextRendererComponent:
+      Label: "Health: 100"
       Color: [1, 1, 1, 1]
-      TilingFactor: [1, 1]
-      TextureFilepath: Assets\Textures\Player.png
-    Rigidbody2DComponent:
-      BodyType: Dynamic
-      FixedRotation: true
-      GravityScale: 0
-    CircleCollider2DComponent:
-      Offset: [0, 0]
-      Radius: 0.5
-      Density: 1
-      Friction: 0.5
-      Restitution: 0
-      RestitutionThreshold: 0.5
-      IsTrigger: false
+      Size: 1
+  - GameObject: 2997365485887514179
+    TagComponent:
+      Tag: TimeText
+    TransformComponent:
+      Position: [-7.00200653, 3, -0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+      IsChild: false
+    TextRendererComponent:
+      Label: "Score: 12"
+      Color: [1, 1, 1, 1]
+      Size: 1

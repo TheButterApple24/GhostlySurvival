@@ -14,12 +14,16 @@ namespace LD51
 		PlayerController m_Player;
 		AudioSourceComponent m_AudioSource;
 
+		int m_EnemyIndex = -1;
+
 		void Start()
 		{
 			m_PlayerObject = FindGameObjectByName("Player");
 			m_GameManager = FindGameObjectByName("GameManager").As<GameManager>();
 			m_Player = m_PlayerObject.As<PlayerController>();
 			m_AudioSource = GetComponent<AudioSourceComponent>();
+
+			m_EnemyIndex = m_GameManager.m_Enemies.Count;
 		}
 
 		void Update(float deltaTime)
@@ -28,6 +32,8 @@ namespace LD51
 			{
 				if (m_AwardPointOnDeath)
 					m_Player.IncrementPlayerScore();
+				if(m_EnemyIndex < m_GameManager.m_Enemies.Count)
+					m_GameManager.m_Enemies.RemoveAt(m_EnemyIndex);
 
 				Destroy(this);
 				return;

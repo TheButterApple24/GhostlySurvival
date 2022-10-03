@@ -14,11 +14,10 @@ namespace LD51
 		Prefab m_EnemyPrefab;
 		Prefab m_LevelGeoPrefab;
 
-		List<GameObject> m_Enemies;
+		public List<GameObject> m_Enemies;
 		List<GameObject> m_WorldObjects;
 
 		float m_TimeToSpawnEnemy = 5.0f;
-
 		bool m_ResetPressed = false;
 		float m_ResetTimer = 1.0f;
 
@@ -47,12 +46,15 @@ namespace LD51
 			}
 			else
 			{
-				EnemySpawnTimer += 1 * deltaTime;
-
-				if (EnemySpawnTimer >= m_TimeToSpawnEnemy)
+				if (m_Enemies.Count < 10)
 				{
-					SpawnEnemy();
-					EnemySpawnTimer = 0;
+					EnemySpawnTimer += 1 * deltaTime;
+
+					if (EnemySpawnTimer >= m_TimeToSpawnEnemy)
+					{
+						SpawnEnemy();
+						EnemySpawnTimer = 0;
+					}
 				}
 
 				LevelChangeTimer -= 1 * deltaTime;
@@ -61,7 +63,12 @@ namespace LD51
 				{
 					ChangeLevel();
 					LevelChangeTimer = 10;
-					m_TimeToSpawnEnemy -= 0.5f;
+					if (m_TimeToSpawnEnemy > 1.0f)
+						m_TimeToSpawnEnemy -= 0.5f;
+					else if (m_TimeToSpawnEnemy > 0.1f)
+						m_TimeToSpawnEnemy -= 0.25f;
+					else
+						m_TimeToSpawnEnemy = 0.1f;
 				}
 
 				if (Input.IsKeyDown(KeyCode.R) && !m_ResetPressed)
