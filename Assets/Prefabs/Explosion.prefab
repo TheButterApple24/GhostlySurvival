@@ -1,0 +1,17 @@
+GameObject: 1818494138543517962
+TagComponent:
+  Tag: Explosion
+TransformComponent:
+  Position: [0, 0, 0]
+  Rotation: [0, 0, 0]
+  Scale: [1, 1, 1]
+  IsChild: false
+ScriptComponent:
+  ClassName: LD51.Explosion
+  ScriptFields:
+    []
+AudioSourceComponent:
+  SoundFilepath: Assets\Audio\Explosion.wav
+  Pitch: 1
+  Gain: 0.300000012
+  LoopSound: false

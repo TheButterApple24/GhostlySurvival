@@ -1,0 +1,33 @@
+GameObject: 806630940342898857
+TagComponent:
+  Tag: Enemy
+TransformComponent:
+  Position: [0, 0, 0]
+  Rotation: [0, 0, 0]
+  Scale: [1, 1, 1]
+  IsChild: false
+ScriptComponent:
+  ClassName: LD51.Enemy
+  ScriptFields:
+    []
+AudioSourceComponent:
+  SoundFilepath: Assets\Audio\EnemyHit.wav
+  Pitch: 1
+  Gain: 0.300000012
+  LoopSound: false
+SpriteRendererComponent:
+  Color: [1, 1, 1, 1]
+  TilingFactor: [1, 1]
+  TextureFilepath: Assets\Textures\EnemyGhost.png
+Rigidbody2DComponent:
+  BodyType: Kinematic
+  FixedRotation: false
+  GravityScale: 1
+CircleCollider2DComponent:
+  Offset: [0, 0]
+  Radius: 0.5
+  Density: 1
+  Friction: 0.5
+  Restitution: 0
+  RestitutionThreshold: 0.5
+  IsTrigger: false

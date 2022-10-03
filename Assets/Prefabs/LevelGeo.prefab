@@ -1,0 +1,24 @@
+GameObject: 15408281025707195803
+TagComponent:
+  Tag: LevelGeo
+TransformComponent:
+  Position: [0, 0, -0]
+  Rotation: [0, 0, 0]
+  Scale: [1, 1, 1]
+  IsChild: false
+SpriteRendererComponent:
+  Color: [0.691119671, 0.691119671, 0.691119671, 1]
+  TilingFactor: [1, 1]
+  TextureFilepath: Assets\Textures\Crate.png
+Rigidbody2DComponent:
+  BodyType: Static
+  FixedRotation: false
+  GravityScale: 1
+BoxCollider2DComponent:
+  Offset: [0, 0]
+  Size: [0.5, 0.5]
+  Density: 1
+  Friction: 0.5
+  Restitution: 0
+  RestitutionThreshold: 0.5
+  IsTrigger: false

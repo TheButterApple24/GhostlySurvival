@@ -1,0 +1,28 @@
+GameObject: 13674120854707465195
+TagComponent:
+  Tag: Projectile
+TransformComponent:
+  Position: [0, 0, 0]
+  Rotation: [0, 0, 0]
+  Scale: [1, 1, 1]
+  IsChild: false
+ScriptComponent:
+  ClassName: LD51.Projectile
+  ScriptFields:
+    []
+SpriteRendererComponent:
+  Color: [1, 0.926640868, 0, 1]
+  TilingFactor: [1, 1]
+  TextureFilepath: Assets\Textures\Projectile.png
+Rigidbody2DComponent:
+  BodyType: Dynamic
+  FixedRotation: false
+  GravityScale: 0
+CircleCollider2DComponent:
+  Offset: [0, 0]
+  Radius: 0.270000011
+  Density: 1
+  Friction: 0.5
+  Restitution: 0
+  RestitutionThreshold: 0.5
+  IsTrigger: true
